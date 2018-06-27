@@ -31,7 +31,6 @@ class App extends Component {
     axios
       .put(`https://practiceapi.devmountain.com/api/posts?id=${id}`, { text })
       .then(res => {
-        // console.log(res);
         this.setState({ posts: res.data });
       });
   }
@@ -46,7 +45,7 @@ class App extends Component {
 
   createPost(text) {
     axios
-      .post(`https://practiceapi.devmountain.com/api/props`, { text })
+      .post(`https://practiceapi.devmountain.com/api/posts`, { text })
       .then(res => {
         this.setState({ posts: res.data });
       });
@@ -61,7 +60,6 @@ class App extends Component {
 
         <section className="App__content">
           <Compose createPostFn={this.createPost} />
-
           {posts.map(post => (
             <Post
               key={post.id}
